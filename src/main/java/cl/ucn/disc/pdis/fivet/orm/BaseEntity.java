@@ -24,6 +24,7 @@
 
 package cl.ucn.disc.pdis.fivet.orm;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import lombok.Getter;
 
@@ -46,13 +47,13 @@ public abstract class BaseEntity {
      * the date of creation
      */
     @Getter
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = false, dataType = DataType.SERIALIZABLE)
     protected ZonedDateTime createdAt = ZonedDateTime.now();
 
     /**
      * the date of removal
      */
     @Getter
-    @DatabaseField
+    @DatabaseField(dataType = DataType.SERIALIZABLE)
     protected ZonedDateTime deletedAt;
 }
